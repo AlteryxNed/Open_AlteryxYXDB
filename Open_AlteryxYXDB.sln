@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Open_AlteryxYXDB", "Open_AlteryxYXDB.vcxproj", "{9ECD10B0-3BD7-4714-BCF1-3B8E7B961085}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9ECD10B0-3BD7-4714-BCF1-3B8E7B961085}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9ECD10B0-3BD7-4714-BCF1-3B8E7B961085}.Debug|Win32.Build.0 = Debug|Win32
+		{9ECD10B0-3BD7-4714-BCF1-3B8E7B961085}.Debug|x64.ActiveCfg = Debug|x64
+		{9ECD10B0-3BD7-4714-BCF1-3B8E7B961085}.Debug|x64.Build.0 = Debug|x64
+		{9ECD10B0-3BD7-4714-BCF1-3B8E7B961085}.Release|Win32.ActiveCfg = Release|Win32
+		{9ECD10B0-3BD7-4714-BCF1-3B8E7B961085}.Release|Win32.Build.0 = Release|Win32
+		{9ECD10B0-3BD7-4714-BCF1-3B8E7B961085}.Release|x64.ActiveCfg = Release|x64
+		{9ECD10B0-3BD7-4714-BCF1-3B8E7B961085}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
