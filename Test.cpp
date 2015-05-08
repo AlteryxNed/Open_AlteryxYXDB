@@ -4,53 +4,9 @@
 #include <iostream>
 #include <random>
 
+// only used for generating sample data
+SRC::AString EnglishNumber(int n);
 
-SRC::AString EnglishNumber(int n) 
-{
-	const static int numbers[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,30,40,50,60,70,80,90,100,1000,1000000,1000000000};
-	const static SRC::AString english[] = {"zero", "one", "two", "three", "four", "five", "six","seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen","fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty","thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety","hundred", "thousand", "million", "billion"};
-
-	SRC::AString returnString;
-
-	if (n<0)
-	{
-		returnString = "negative";
-		n = -n;
-	}
-
-	for(int i = sizeof(numbers)/sizeof(*numbers) - 1; i >= 0; i--) 
-	{
-		if(n == numbers[i])
-		{
-			if (!returnString.empty())
-				returnString += " ";
-			if (n>=100)
-			{
-				returnString += english[1];
-				returnString += " ";
-			}
-
-			returnString += english[i];
-			break;
-		}
-		else if (n>numbers[i])
-		{
-			if(!returnString.empty())
-				returnString += " ";
-
-			if(n >= 100)
-			{
-				returnString += EnglishNumber(n / numbers[i]);
-				returnString += " ";
-			}
-
-			returnString += english[i];
-			n -= (n / numbers[i]) * numbers[i];
-		}
-	}
-
-	return returnString;
-}
 void WriteSampleFile(const wchar_t *pFile)
 {
 	// the RecordInfo structure defines a record for the YXDB file.
@@ -85,7 +41,7 @@ void WriteSampleFile(const wchar_t *pFile)
 		int v = r();
 
 		// the recordInfo object contains an array for FieldBase objects.
-		// although the fields are strongly typed, the field object acts like a variant - 
+		// although the fields are strongly typed, the field wrapper will convert when needed
 		// which is to say it will accept setting the field as a different type than what it is writing
 
 		// in this case we are setting the value as an integer, but the field is actually a float.
@@ -161,3 +117,50 @@ int _tmain(int argc, _TCHAR* argv[])
 	return 0;
 }
 
+// only used for generating sample data
+SRC::AString EnglishNumber(int n)
+{
+	const static int numbers[] = { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,30,40,50,60,70,80,90,100,1000,1000000,1000000000 };
+	const static SRC::AString english[] = { "zero", "one", "two", "three", "four", "five", "six","seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen","fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty","thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety","hundred", "thousand", "million", "billion" };
+
+	SRC::AString returnString;
+
+	if (n<0)
+	{
+		returnString = "negative";
+		n = -n;
+	}
+
+	for (int i = sizeof(numbers) / sizeof(*numbers) - 1; i >= 0; i--)
+	{
+		if (n == numbers[i])
+		{
+			if (!returnString.empty())
+				returnString += " ";
+			if (n >= 100)
+			{
+				returnString += english[1];
+				returnString += " ";
+			}
+
+			returnString += english[i];
+			break;
+		}
+		else if (n>numbers[i])
+		{
+			if (!returnString.empty())
+				returnString += " ";
+
+			if (n >= 100)
+			{
+				returnString += EnglishNumber(n / numbers[i]);
+				returnString += " ";
+			}
+
+			returnString += english[i];
+			n -= (n / numbers[i]) * numbers[i];
+		}
+	}
+
+	return returnString;
+}
