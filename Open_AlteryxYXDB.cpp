@@ -183,7 +183,7 @@ namespace Alteryx  { namespace OpenYXDB
 			else
 				m_pFile->Close();
 			
-			m_pFile = NULL; //nullptr;
+			m_pFile.reset();
 		}
 	}
 
