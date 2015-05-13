@@ -50,10 +50,10 @@ namespace Alteryx  { namespace OpenYXDB
 
 #ifdef __GNUG__
 		AString astrFile = ConvertToAString(strFile);
-		if(strchr(astrFile.c_str(), "?")!=nullptr)
+		if(strchr(astrFile.c_str(), '?')!=nullptr)
 			throw Error(L"Error in OpenForRead: Unicode filenames are not supported");
 
-		m_iFileDescriptor = open(strFile, O_RDONLY | O_BINARY, 0);
+		m_iFileDescriptor = open(astrFile.c_str(), O_RDONLY | O_BINARY, 0);
 #else
 		m_iFileDescriptor = _wopen(strFile, _O_RDONLY | _O_BINARY);
 #endif
@@ -69,10 +69,10 @@ namespace Alteryx  { namespace OpenYXDB
 
 #ifdef __GNUG__
 		AString astrFile = ConvertToAString(strFile);
-		if(strchr(astrFile.c_str(), "?")!=nullptr)
+		if(strchr(astrFile.c_str(), '?')!=nullptr)
 			throw Error(L"Error in OpenForRead: Unicode filenames are not supported");
 
-		m_iFileDescriptor = open(strFile, O_WRONLY | O_CREAT | O_TRUNC | O_BINARY, 0);
+		m_iFileDescriptor = open(astrFile.c_str(), O_WRONLY | O_CREAT | O_TRUNC | O_BINARY, 0);
 #else
 		m_iFileDescriptor = _wopen(strFile, _O_RDWR  | _O_CREAT | _O_TRUNC | _O_BINARY, _S_IREAD | _S_IWRITE );
 #endif
